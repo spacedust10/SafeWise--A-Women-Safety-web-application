@@ -11,3 +11,55 @@ A directory of women's shelters and hotlines for seeking help in times of crisis
 We believe that every woman has the right to feel safe and respected, and it is our goal to support and empower women to take control of their safety. Thank you for visiting our site and please don't hesitate to reach out if you have any questions or need support.
 
 Stay safe!
+
+---------------------------------------------------------------------------------------------------------
+Title: SafeShe
+Tagline: Empowering Women's Safety
+
+Call to Action Button: Get the App
+
+Features:
+
+Emergency alerts: Allows users to send out a loud siren and flashing screen to alert people around them of danger.
+GPS tracking: Allows users to share their location with trusted contacts in real-time.
+Panic button: Allows users to quickly and discreetly call for help in an emergency.
+Safety tips: Provides users with safety tips and resources for a variety of situations.
+Community support: Connects users with a community of like-minded individuals who are committed to promoting women's safety.
+Details:
+SafeShe is a web-based application that aims to empower women's safety through a range of features that provide both practical and emotional support. The app allows users to send out emergency alerts in times of danger, track their location using GPS, and access safety tips and resources. It also provides a community support feature that connects users with a network of individuals who are committed to promoting women's safety. Whether users are faced with harassment, abuse, or simply feel unsafe, SafeShe is a reliable resource for help and support.
+
+----------------------------------------------------------------------
+Title: SafeHer
+Tagline: Empowering women to stay safe, anytime, anywhere.
+
+Call to Action Button: Get the App Now
+
+Features:
+
+Emergency alert button: Allows users to quickly send an alert to designated contacts in case of an emergency.
+GPS tracking: Allows designated contacts to track the user's location in real-time.
+Safety tips and resources: Provides users with tips and resources to help them stay safe in various situations.
+Support network: Connects users with a network of trusted contacts and local resources for additional support.
+Details:
+SafeHer is a web-application that empowers women to stay safe by providing them with a suite of tools and resources. With the emergency alert button, users can quickly send an alert to designated contacts in case of an emergency. The GPS tracking feature allows designated contacts to track the user's location in real-time, providing an extra layer of protection. The app also provides users with safety tips and resources to help them stay safe in various situations. In addition, SafeHer connects users with a network of trusted contacts and local resources for additional support. With SafeHer, women can feel empowered and confident in their safety, anytime, anywhere.
+
+-----------------------------------------------------------------------------
+Title: "SafeWise"
+Tagline: "Empowering women to stay safe and feel secure"
+Call to Action Button: "Download Now"
+
+Features:
+
+Emergency Alerts: Allows users to quickly send out a distress signal to their trusted contacts in case of an emergency.
+
+Safety Tips and Resources: Provides access to a variety of safety tips and resources to help women stay safe in different situations.
+
+Personal Safety Tracker: Allows users to track their location and share it with trusted contacts to ensure their safety while traveling.
+
+Crisis Hotline Directory: Provides a directory of crisis hotlines for various situations, including domestic violence and sexual assault.
+
+Community Support: Connects users with a community of like-minded individuals who can provide support and guidance in times of need.
+
+Details:
+
+SafeWise is a web-based application designed to empower women to stay safe and feel secure. With a variety of features including emergency alerts, safety tips and resources, and a personal safety tracker, SafeWise provides users with the tools they need to feel confident and in control of their safety. The app also includes a directory of crisis hotlines and connects users with a supportive community of like-minded individuals. Whether you're traveling alone or just want an extra layer of protection, SafeWise has you covered
