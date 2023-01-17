@@ -9,6 +9,7 @@
     "geojson": "^0.5.0",
     "lethargy": "^1.0.9",
     "locomotive-scroll": "^4.1.4",
+    "mysql": "^2.18.1",
     "object-assign": "^4.1.1",
     "smoothscroll-polyfill": "^0.4.4",
     "tiny-emitter": "^1.2.0",
