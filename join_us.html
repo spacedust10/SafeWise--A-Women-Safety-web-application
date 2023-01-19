@@ -178,7 +178,7 @@
                 <div class="screen-body">
                     <div class="screen-body-item left">
                         <div class="app-title">
-                            <span>CONTACT</span>
+                            <span>JOIN</span>
                             <span>US</span>
                         </div>
                     </div>
@@ -190,12 +190,14 @@
                             <div class="app-form-group">
                                 <input type="email" class="app-form-control" name="" placeholder="EMAIL">
                             </div>
+                            <div class="app-form-group">
+                                <input type="text" class="app-form-control" name="" placeholder="CONTACT NUMBER">
+                            </div>
                             <div class="app-form-group message">
-                                <input type="text" class="app-form-control" name="" placeholder="MESSAGE">
+                                <input type="text" class="app-form-control" name="" placeholder="ADDRESS">
                             </div>
                             <div class="app-form-group buttons">
-                                <button class="app-form-button" id="cancel">CANCEL</button>
-                                <button class="app-form-button">SEND</button>
+                                <button class="app-form-button">JOIN</button>
                             </div>
                         </div>
                     </div>
@@ -203,12 +205,5 @@
             </div>
         </div>
     </div>
-    <script>
-        let btnClear = document.querySelector('cancel');
-        let inputs = document.querySelectorAll('input');
-        btnClear.addEventListener("click", () => {
-            inputs.forEach(input => input.value = '');
-        })
-    </script>
 </body>
 </html>
