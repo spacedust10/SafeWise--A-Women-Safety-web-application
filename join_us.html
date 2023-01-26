@@ -11,199 +11,70 @@
     <!-- <link rel="stylesheet" href="style.css"/> -->
     <style>
         *{
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
-        }
-        body{
-            background: linear-gradient(to right, #fff 0%, #ccdad1 100%);
-            font-size: 12px;
-        }
-        body, input, button{
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            letter-spacing: 1.4px;
-        }
-        .background{
-            display: flex;
-            min-height: 100vh;
+            font-family: Montserrat , sans-serif;
         }
         .container{
-            flex: 0 1 700px;
-            margin: auto;
-            padding: 10px;
-        }
-        .screen{
-            position: relative;
-            background-color: #3e3e3e;
-            border-radius: 15px;
-        }
-        .screen:after{
-            content: '';
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 20px;
-            right: 20px;
-            bottom: 0;
-            z-index: -1;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-        .screen-header{
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(-45deg,#c5d5ea, #759eb8, #7392b7, #b3c5d7, #d8e1e9);
             display: flex;
             align-items: center;
-            padding: 10px 20px;
-            background-color: #4d4d4f;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
+            justify-content: center;
         }
-        .screen-header-left{
-            margin-right: auto;
-        }
-        .screen-header-button{
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            margin-right: 3px;
-            border-radius: 8px;
-            background-color: #fff;
-        }
-        .screen-header-button.close{
-            background-color: #ed1c6f;
-            cursor: pointer;
-        }
-        .screen-body{
-            display: flex;
-        }
-        .screen-body-item{
-            flex: 1;
-            padding: 50px;
-        }
-        .screen-body-item.left{
+        form{
+            background: #2e4052;
             display: flex;
             flex-direction: column;
+            padding: 2vw 4vw;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 10px;
         }
-        .app-title{
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            color: #ccdad1;
-            font-size: 26px;
-        }
-        .app-title:after{
-            content: '';
-            display: block;
-            position: absolute;
-            left: 0;
-            bottom: -10px;
-            width: 25px;
-            height: 4px;
-            background-color: #ccdad1;
-        }
-        .app-form-group{
-            margin-bottom: 15px;
-        }
-        .app-form-group.message{
-            margin-top: 40px;
-        }
-        .app-form-group.buttons{
-            margin-bottom: 0px;
-            text-align: right;
-        }
-        .app-form-control{
-            width: 100%;
-            padding: 10px 0;
-            background-color: transparent;
-            border: none;
-            border-bottom: lpx solid #666;
-            color: #ddd;
-            font-size: 14px;
-            text-transform: uppercase;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-        .app-form-control::placeholder{
-            color: #666;
-        }
-        .app-form-control:focus{
-            border-bottom-color: #ddd;
-        }
-        .app-form-button{
-            background-color: transparent;
-            border: none;
-            color: #ccdad1;
-            font-size: 14px;
-            cursor: pointer;
-            outline: none;
-        }
-        .app-form-button:hover{
+        form h3{
             color: #fff;
+            font-weight: 700;
+            margin-bottom: 20px;
         }
-        @media screen and (max-width: 520px){
-            .screen-body{
-                flex-direction: column;
-            }
-            .screen-body-item.left{
-                margin-bottom: 30px;
-            }
-            .app-title{
-                flex-direction: row;
-            }
-            .app-title span{
-                margin-right: 12px;
-            }
-            .app-title:after{
-                display: none;
-            }
+        form input, form textarea{
+            border: 0;
+            margin: 10px 0;
+            padding: 20px;
+            outline: none;
+            font-size: 16px;
+            background: #d3d0cb;
         }
-        @media screen and (max-width: 600px){
-            .screen-body{
-                padding: 40px;
-            }
-            .screen-body-item{
-                padding: 0;
-            }
+        form button{
+            width: 150px;
+            flex-basis: 40%;
+            margin: 15px auto 0;
+            padding: 15px;
+            background: #d3d0cb;
+            color: #000;
+            border-radius: 30px;
+            border: 0;
+            outline: none;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 1s;
+        }
+        form button:hover{
+            background: #fff;
         }
     </style>
 </head>
 
 <body data-gr-c-s-loaded="true" class="vsc-initialized">
-    <div class="background">
-        <div class="container">
-            <div class="screen">
-                <div class="screen-header">
-                    <div class="screen-header-left">
-                        <a href="main.html"><div class="screen-header-button close"></div></a>
-                    </div>
-                </div>
-                <div class="screen-body">
-                    <div class="screen-body-item left">
-                        <div class="app-title">
-                            <span>JOIN</span>
-                            <span>US</span>
-                        </div>
-                    </div>
-                    <div class="screen-body-item">
-                        <div class="app-form">
-                            <div class="app-form-group">
-                                <input type="text" class="app-form-control" name="" placeholder="NAME">
-                            </div>
-                            <div class="app-form-group">
-                                <input type="email" class="app-form-control" name="" placeholder="EMAIL">
-                            </div>
-                            <div class="app-form-group">
-                                <input type="text" class="app-form-control" name="" placeholder="CONTACT NUMBER">
-                            </div>
-                            <div class="app-form-group message">
-                                <input type="text" class="app-form-control" name="" placeholder="ADDRESS">
-                            </div>
-                            <div class="app-form-group buttons">
-                                <button class="app-form-button">JOIN</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="container">
+        <form action="https://formspree.io/f/mqkoekbn" method="POST">
+            <h3>GET IN TOUCH WITH US</h3>
+            <input name="Name" type="text" id="name" placeholder="your name" required>
+            <input name="Email" type="email" id="email" placeholder="your email" required>
+            <input name="Phone Number" type="phone" id="phone-number" placeholder="your phone number" required>
+            <button>send</button>
+        </form>
     </div>
 </body>
 </html>
