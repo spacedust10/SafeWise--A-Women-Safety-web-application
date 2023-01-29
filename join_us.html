@@ -67,14 +67,65 @@
 </head>
 
 <body data-gr-c-s-loaded="true" class="vsc-initialized">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <div class="container">
-        <form action="https://formspree.io/f/mqkoekbn" method="POST">
+        <form  id="myForm">
             <h3>GET IN TOUCH WITH US</h3>
             <input name="Name" type="text" id="name" placeholder="your name" required>
             <input name="Email" type="email" id="email" placeholder="your email" required>
-            <input name="Phone Number" type="phone" id="phone-number" placeholder="your phone number" required>
-            <button>send</button>
+            <input name="Phone_Number" type="phone" id="phone-number" placeholder="your phone number" required>
+            <button type="button" id="submit-button" onclick="submitForm()">send</button>
         </form>
     </div>
+    <script>
+        function submitForm() {
+          // Get the form data
+            const formData = new FormData(document.getElementById("myForm"));
+            
+            // Send the form data to Google Sheets using SheetDB
+            fetch("https://sheetdb.io/api/v1/abkk16hwvxalk", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log("Form data sent to Google Sheets successfully!");
+                } else {
+                    console.log("Error sending form data to Google Sheets.");
+                }
+            })
+            .catch(error => {
+                console.log("Error sending form data to Google Sheets: " + error);
+            });
+            // Send the form data to Formspree to send an email
+            fetch("https://formspree.io/f/mqkoekbn", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log("Form data sent to email successfully!");
+                } else {
+                    console.log("Error sending form data to email.");
+                }
+            })
+            .catch(error => {
+                console.log("Error sending form data to email: " + error);
+            });
+        }
+        $(document).ready(function() {
+            $("#submit-button").click(function(event) {
+                event.preventDefault(); 
+                if ($("#myForm input").filter(function() {
+                    return !this.value;
+                }).length) {
+                    alert("Please fill in all the fields.");
+                } else {
+                    alert("Form submitted successfully!");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
+<!-- https://formspree.io/f/mqkoekbn   https://sheetdb.io/api/v1/abkk16hwvxalk-->
