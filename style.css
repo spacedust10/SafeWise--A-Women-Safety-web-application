@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
 }
 
 html {
@@ -15,6 +16,7 @@ html {
 
 body {
   overflow-x: hidden;
+  background: linear-gradient(#fff, #ccdad1);
 }
 
 :root {
@@ -228,7 +230,7 @@ h4 {
 }
 
 .hero-image img {
-  height: 90%;
+  height: 80%;
   box-shadow: 0 0 10rem 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -344,4 +346,153 @@ h4 {
     width: 90%;
     left: 0;
   }
+}
+
+/* .footer-safewise{
+  margin-top: 8px;
+  width: 100%;
+  padding: 5px 20%;
+  display: flex;
+}
+
+.footer-safewise div{
+  text-align: center;
+}
+
+.col-3{
+  margin-top: 80px;
+}
+.col-2{
+  // margin-top: 80px;
+  flex-grow: 2;
+}
+
+.footer-safewise div h3{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.col-1 a{
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  display: block;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 10px;
+}
+
+form input{
+  width:400px;
+  height: 45px;
+  border-radius: 4px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  outline: none;
+  border: none;
+}
+
+form button{
+  background: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  border-radius: 30px;
+  padding: 10px 30px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.social-icons{
+  margin-top: 30px;
+}
+
+.social-icons ion-icon{
+  font-size: 22px;
+  margin: 10px;
+  cursor: pointer;
+} */
+
+footer-safewise *{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+footer-safewise ul{
+  list-style: none;
+}
+
+footer-safewise {
+  color: #fff;
+  background: transparent;
+}
+
+footer-safewise p{
+  color: #000;
+  max-width: 25em;
+  font-size: 0.9em;
+  line-height: 23px;
+  margin: 0 auto;
+}
+
+footer-safewise a{
+  color: #000;
+  text-decoration: none;
+}
+
+footer-safewise .container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2em;
+}
+
+.brand{
+  display: block;
+  font-size: 1.8em;
+  font-weight: 600;
+  margin-bottom: 1em;
+}
+
+.media-icons{
+  margin: 1.5em 0;
+}
+
+.media-icons li{
+  display: inline-block;
+  margin: 0.5em 0.5em 0.5em 0;
+}
+
+.media-icons a {
+  font-size: 1.1em;
+  width: 2em;
+  height: 2em;
+  border: lpx #000 solid;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.media-icons a:hover{
+  background: #fff;
+  color: #111;
+}
+
+footer-safewise .menu a{
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+footer-safewise .menu a:hover{
+  color: #e6e6eb;
+}
+
+footer-safewise .menu li{
+  display: inline-block;
+  margin: 0.7em;
+  text-align: center;
 }

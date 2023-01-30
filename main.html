@@ -10,6 +10,7 @@
     <title>SafeWise</title>
     <link rel="stylesheet" href="style.css"/>
     <link rel="icon" href="./images/favicon.png" sizes="16x16">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 <body>
     <header class ="header">
@@ -19,7 +20,7 @@
                 <li><a href="main.html" class="navbar-link">Home</a></li>
                 <li><a href="navigation.html" class="navbar-link">Navigation</a></li>
                 <li><a href="guardians.html" class="navbar-link">Guardians</a></li>
-                <li><a href="contact_us" class="btn navbar-btn">Contact Us</a></li>
+                <li><a href="contact_us.html" class="btn navbar-btn">Contact Us</a></li>
             </ul>
         </nav>
         <div class="mobile-navbar-btn">
@@ -35,18 +36,19 @@
                     <p class="para">Our mission is to empower women to feel safe and confident in their daily lives. 
                         We provide resources and information on how to stay safe and what to do in case of an emergency.
                     </p>
-                    <a href="#" class="btn navbar-btn">Join Us</a>
+                    <a href="join_us.html" class="btn navbar-btn">Join Us</a>
                     <div class="hero-icons">
                         <div class="grid grid-two-column">
                             <div class="hero-icon-style">
                                 <ion-icon name="compass-outline" class="icon"></ion-icon>
                                 <h2>Navigate</h2>
-                                <p>write Something here please..</p>
+                                <p>Navigation is a critical aspect of any web application, especially when it comes to ensuring women's safety. 
+                                    A user-friendly navigation system can make a significant impact on the overall user experience.</p>
                             </div>
                             <div class="hero-icon-style">
                                 <ion-icon name="send-outline" class="icon"></ion-icon>
                                 <h2>Communicate</h2>
-                                <p>write Something here please..</p>
+                                <p>Communication plays a vital role in a women safety application to ensure quick and effective alerts and responses in emergency situations.</p>
                             </div>
                         </div>
                     </div>
@@ -61,9 +63,63 @@
                 </div>
             </div> 
         </section>
-        <section class="">
-            
-        </section>
+        <!-- <section class="section" id="JoinUs">
+            <div class="footer">
+                <div class="col-1">
+                    <h3>USEFUL LINKS</h3>
+                    <a href="https://www.iitk.ac.in/wc/data/Majlis_Legal-rights-of-women.pdf" title="useful links">Laws</a>
+                    <a href="https://www.womenssafety.scot/" title="useful links">Survey</a>
+                    <a href="https://indianhelpline.com/WOMEN-HELPLINE/" title="useful links">Helplines</a>
+                </div>
+                <div class="col-2">
+                    <h3>Join Us</h3>
+                    <form>
+                        <input type="name" placeholder="Your Name" required>
+                        <br>
+                        <input type="email" placeholder="Your Email Address" required>
+                        <br>
+                        <input type="phone" placeholder="Your Phone Number" required>
+                        <br>
+                        <button type="submit" class="btn navbar-btn" id="join" title="Do It!!">JOIN</button>
+                    </form>
+                </div>
+                <div class="col-3">
+                    <p class="para">Belgaum, Karnataka, IN<br>+91 012345678</p>
+                    <div class="social-icons">
+                        <ion-icon name="logo-facebook"></ion-icon>
+                        <ion-icon name="logo-instagram"></ion-icon>
+                        <ion-icon name="logo-twitter"></ion-icon>
+                        <ion-icon name="logo-reddit"></ion-icon>
+                        <ion-icon name="mail-outline"></ion-icon>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+        <footer class="footer-safewise">
+            <div class="container">
+                <a href="main.html" class="brand">Safewise</a>
+                <ul class="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Navigation</a></li>
+                    <li><a href="#">Guardians</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="https://www.iitk.ac.in/wc/data/Majlis_Legal-rights-of-women.pdf">Laws</a></li>
+                    <li><a href="http://www.womenssafety.scot/">Survey</a></li>
+                    <li><a href="http://indianhelpline.com/WOMEN-HELPLINE/">Helplines</a></li>
+                </ul>
+                <ul class="media-icons">
+                    <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                    <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                    <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                    <li><a href="#"><ion-icon name="logo-reddit"></ion-icon></a></li>
+                    <li><a href="#"><ion-icon name="mail-outline"></ion-icon></a></li>
+                </ul>
+                <p>Ensuring women's safety is a critical issue that requires multifaceted efforts from society to prevent and address 
+                    violence, harassment, and discrimination against women. This includes laws, policies, support for survivors, 
+                    and education to promote gender equality and respect for women.
+                </p>
+            </div>
+        </footer>
     </main>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -75,6 +131,12 @@
         nav_header.classList.toggle("active");
         };
         mobile_nav.addEventListener("click", () => toggleNavbar());
+        
+        let btnClear = document.querySelector('join');
+        let inputs = document.querySelectorAll('input');
+        btnClear.addEventListener("click", () => {
+            inputs.forEach(input => input.value = '');
+        })
     </script>
 </body>
 </html>

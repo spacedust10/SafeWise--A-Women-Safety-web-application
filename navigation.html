@@ -10,14 +10,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SafeWise</title>
     <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
     <link rel="icon" href="./images/favicon.png" sizes="16x16">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.css"/>
     <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
         #map{
             width: 100%;
-            height: 100vh;
+            height: 750px; /*833px*/
+        }
+        .coordinates{
+            position: absolute;
+            bottom: 10px;
+            right: 40%;
+            font-size: 12px;
+        }
+        .leaflet-popup-content-wrapper{
+            background-color: #000;
+            color: #fff;
+            border: 1px solid #80849c;
+            border-radius: 1px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+            font-size: 1.6rem;
+        }
+        button{
+            padding: 1.2rem 2.4rem;
+            background-color: #ccdad1;
+            border: 1px solid #ccdad1;
+            color: #000;
+            border-radius: 5rem;
+            transition: all 0.3s ease-in-out;
+        }
+        button:hover,button:active{
+            background-color: #fff;
+            color: #000;
         }
     </style>
-
 </head>
 
 <body>
@@ -37,8 +72,208 @@
         </div>
     </header>
     <div id="map"></div>
+    <button onclick=fullScreenView() class="button">Full Screen</button>
+    <div class="leaflet-control coordinates"></div>
+    <button class="zoom-to-layer">zoom-to-layer</button>
+    <button class="routing">Routing</button>
 </body>
 </html>
+
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+<script src="./includes/leaflet.browser.print.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.js"></script>
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
-    // insert your map API here
+    //map
+    var map = L.map('map').setView([15.8497, 74.4977], 12);
+    var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    osm.addTo(map);
+    
+    var dark = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+	subdomains: 'abcd',
+	maxZoom: 20
+    });
+
+    //watercolor.addTo(map);
+    googleStreets = L.tileLayer('http://{s}.google.com/vt?lyrs=m&x={x}&y={y}&z={z}',{
+    maxZoom: 20,
+    subdomains:['mt0','mt1','mt2','mt3']
+    });
+    
+    googleSat = L.tileLayer('http://{s}.google.com/vt?lyrs=s&x={x}&y={y}&z={z}',{
+    maxZoom: 20,
+    subdomains:['mt0','mt1','mt2','mt3']
+    });
+    
+    var singleMarker = L.marker([15.8497, 74.4977],{
+        opacity: 0.9
+    }).bindPopup("<h1> Belgaum </h1> <p> There's Nothing special here :) </p>").openPopup().addTo(map);
+    // var singleMarker2 = L.marker([33.2778, 75.3412], {draggable: true});
+    // var popup = singleMarker.bindPopup('Belagavi, ' + singleMarker.getLatLng(), {}).openPopup()
+    // popup.addTo(map);
+    console.log(singleMarker.toGeoJSON());
+
+    //Layer controller
+    var baseMaps = {
+        "OSM": osm,
+        "Dark": dark,
+        "Google street": googleStreets,
+        "Google Satellite": googleSat,
+        // "Real-time-Location": RT_Locator 
+    };
+    var overlayMaps = {
+        "FirstMarker": singleMarker,
+        // "World": data
+    };
+    L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+    //events
+    map.on('mouseover',function(){
+        console.log("mouse over the map")
+    })
+    //real-time location
+    // var RT_Locator = navigator.geolocation.getCurrentPosition(getPosition);
+    // if(!navigator.geolocation){
+    //     console.log("browser does not support geolocation feature")
+    // }
+    // else{
+    //     setInterval(() => {
+    //         RT_Locator
+    //     }, 1000);
+    // }
+    // var marker, circle, lat, long;
+    // function getPosition(position){
+    //     //console.log(position)
+    //     var lat = position.coords.latitude
+    //     var long = position.coords.longitude
+    //     var acc = position.coords.accuracy
+    //     if(marker){
+    //         map.removeLayer(marker)
+    //     }
+    //     if(circle){
+    //         map.removeLayer(circle)
+    //     }
+    //     marker = L.marker([lat, long])
+    //     circle = L.circle([lat, long], {radius: acc})
+
+    //     var featuregroup = L.featureGroup([marker, circle]).addTo(map)
+    //     map.fitBounds(featuregroup.getBounds())
+    //     console.log("Your Curent Location: latitude: "+lat+ " longitude: "+long+ " accuracy: "+acc);
+    // }
+    // console.log(lat, long)
+    // function onLocationFound(e) {
+    //     var radius = e.accuracy / 2;
+    //     userLat = e.latlng.lat;
+    //     userLng = e.latlng.lng;
+    //     movingCircle.setLatLng(e.latlng.lat, e.latlng.lng);
+    //     movingCircle.redraw();
+    // }
+    // var userLocation = map.locate({
+    //     watch:true,
+    //     maxZoom:16,
+    //     enableHighAccuracy: true
+    // });
+    // var userLat;
+    // var userLng;
+    // var movingCircle = L.circle([0,0], 20,{
+    //     color: 'red',
+    //     fillColor: '#f03',
+    //     fillOpacity: 0.5,
+    //     draggable: true
+    // }).addTo(map);
+    L.control.locate().addTo(map);
+    //routing Machine
+    $('.routing').click(function(){
+        map.on('click', function (e) {
+            console.log(e)
+            var secondMarker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+            L.Routing.control({
+                waypoints: [
+                    L.latLng(15.8497, 74.4977),
+                    L.latLng(e.latlng.lat, e.latlng.lng)
+                ]
+            }).on('routesfound', function (e) {
+                console.log(e)
+                e.routes[0].coordinates.forEach(function (coord, index) {
+                    setTimeout(() => {
+                        singleMarker.setLatLng([coord.lat, coord.lng])
+                    }, 69*index);
+                })
+            }).addTo(map);
+        })
+    })
+    //scaling
+    L.control.scale({position: 'topleft'}).addTo(map)
+    map.zoomControl.setPosition('bottomright');
+    var mapId = document.getElementById('map');
+    function fullScreenView(){
+        mapId.requestFullscreen();
+    }
+
+    //map coordinate display
+    map.on('mousemove', function(e) {
+        console.log('lat: '+ e.latlng.lat, 'lng: '+ e.latlng.lng)
+        $('.coordinates').html(`Lat: ${e.latlng.lat}, Lng: ${e.latlng.lng}`)
+    })
+
+    //map print(save as pdf)
+    // $('.print-map').click(function() {
+    //     window.print();
+    // });
+    L.control.browserPrint().addTo(map);
+    //search
+    L.Control.geocoder().addTo(map);
+    // var geocoder = L.Control.geocoder({
+    //     defaultMarkGeocode: false
+    // }).on('markgeocode', function(e) {
+    //     var bbox = e.geocode.bbox;
+    //     var poly = L.polygon([
+    //         bbox.getSouthEast(),
+    //         bbox.getNorthEast(),
+    //         bbox.getNorthWest(),
+    //         bbox.getSouthWest()
+    //     ]).addTo(map);
+    //     map.fitBounds(poly.getBounds());
+    // }).addTo(map);
+
+    //zoom-to-layer
+    $('.zoom-to-layer').click(function(){
+        map.setView([15.8497, 74.4977], 12)
+    })
+
+    //leaflet draw
+    var drawnFeature = new L.FeatureGroup();
+    map.addLayer(drawnFeature);
+
+    var drawControl = new L.Control.Draw({
+        edit: {
+            featureGroup: drawnFeature,
+            remove: false
+        }
+    });
+    map.addControl(drawControl);
+
+    map.on("draw:created", function(e) {
+        var type = e.layerType;
+        var layer = e.layer;
+        console.log(layer.toGeoJSON());
+        // layer.bindPopup(`<p>${JSON.stringify(layer.toGeoJSON())}</p>`).openPopup().addTo(map); /*${JSON.stringify(layer.toGeoJSON())}*/ 
+        drawnFeature.addLayer(layer);
+    });
+
+    map.on("draw:edited", function(e) {
+        var layer = e.layers;
+        var type = e.layerType;
+        layers.eachLayer(function(layer) {
+            console.log(layer);
+        })
+    });
 </script>
