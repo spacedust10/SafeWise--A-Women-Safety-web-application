@@ -32,6 +32,7 @@
             width: 90%;
             max-width: 600px;
             border-radius: 10px;
+            margin-left: 30px;
         }
         form h3{
             color: #fff;
@@ -113,7 +114,8 @@
             <textarea name="Message" id="text" rows="4"  placeholder="how can we help you?"></textarea>
             <button type="button" id="submit-button" onclick="submitForm()">send</button>
         </form>
-        <div class="container" id="site_content">
+        <div id="site_content">
+            <h1 style="text-align: center">PRESS SOS FOR HELP</h1>
             <div class="zoomimage">
                 <img src="images/sos.jpeg" onclick="play()" width="auto" height="auto" padding="10px"
                     style="margin:20px 20px 20px 20px; max-width:47%; max-height: 47%;">
@@ -121,6 +123,7 @@
                     style="margin:20px 20px 20px 20px">
         </div>
     </div>
+    
     <script>
         function submitForm() {
           // Get the form data
