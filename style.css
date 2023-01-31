@@ -103,7 +103,7 @@ h4 {
 
 .navbar-btn:hover,
 .navbar-btn:active {
-  background-color: var(--helper-color);
+  background-color: lightcoral;
   color: var(--white);
 }
 
