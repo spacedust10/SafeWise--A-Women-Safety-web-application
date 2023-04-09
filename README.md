@@ -1,11 +1,18 @@
 # SafeWise--A-Women-Safety-web-application
+SafeWise is a women's safety web application that aims to help women feel safer and more secure while traveling alone or in unsafe areas. It is built using HTML, JS, and CSS and includes various features such as navigation, emergency SOS, email services, etc.
 
-On our site, you will find:
-Safety tips for different situations, such as traveling alone, using public transportation, and walking home at night.     
-Guides on what to do in case of harassment or assault.   
-A directory of women's shelters and hotlines for seeking help in times of crisis.   
+# Features
+Some of the key features of SafeWise include:
 
-We believe that every woman has the right to feel safe and respected, and it is our goal to support and empower women to take control of their safety. 
-Thank you for visiting our site and please don't hesitate to reach out if you have any questions or need support.
+- Navigation: The application provides users with the ability to find the safest routes to their destination using Google Maps.
 
-Stay safe!
+- Emergency SOS: In case of an emergency, users can press the SOS button to immediately alert their emergency contacts and share their location.
+
+- Email Services: Users can send an email with their current location and a message to their emergency contacts in case of an emergency.
+
+
+# Installation and Usage
+To use SafeWise, simply visit the website and create an account. Once you have created an account, you can log in and start using the various features of the application.
+
+# Contributing
+Contributions are welcome! If you find a bug or have an idea for an improvement, feel free to open an issue or a pull request.
