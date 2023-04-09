@@ -12,7 +12,7 @@ Some of the key features of SafeWise include:
 
 
 # Installation and Usage
-To use SafeWise, simply visit the website and create an account. Once you have created an account, you can log in and start using the various features of the application.
+To use SafeWise, simply clone this repo and execute the main.html file. Once you have done this, you can start using the various features of the application.
 
 # Contributing
 Contributions are welcome! If you find a bug or have an idea for an improvement, feel free to open an issue or a pull request.
